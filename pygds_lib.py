@@ -12,7 +12,7 @@ class _DescrUnion(ctypes.Union):
 class CUfileDescr(ctypes.Structure):
     _fields_ = [("type", ctypes.c_int), ("handle", _DescrUnion)]
 
-class GDSIO:
+class PYGDS:
     """GPUDirect Storage I/O library for direct GPU-NVMe data transfer."""
     
     def __init__(self, buffer_size=4*1024, pattern_byte=0xAB):
@@ -168,5 +168,5 @@ class GDSIO:
             self.cleanup()
 
 if __name__ == "__main__":
-    gds = GDSIO()
+    gds = PYGDS()
     gds.run_demo()
